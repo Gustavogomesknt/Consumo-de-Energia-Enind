@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Consumo de Energia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consumo de Energia - Enind</h1>
+        <form id="form">
+            <div class="input-group">
+                <label for="valorConta">Valor da Conta (R$):</label>
+                <input type="valor" id="valorConta" required>
+            </div>
+            <div class="input-group">
+                <label for="bandeira">Selecione a Bandeira Tarifária:</label>
+                <select id="bandeira" required>
+                    <option value="verde">Verde</option>
+                    <option value="amarela">Amarela</option>
+                    <option value="vermelha1">Vermelha (Patamar 1)</option>
+                    <option value="vermelha2">Vermelha (Patamar 2)</option>
+                </select>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="resultado">
+            <h2>Resultado</h2>
+            <p id="consumoMedio"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

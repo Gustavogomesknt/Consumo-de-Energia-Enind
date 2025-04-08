@@ -1,35 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Consumo de Energia</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle de Energia Enind</title>
+  <link rel="icon" type="image/png" href="img/Enind.png">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Consumo de Energia - Enind</h1>
-        <form id="form">
-            <div class="input-group">
-                <label for="valorConta">Valor da Conta (R$):</label>
-                <input type="valor" id="valorConta" required>
-            </div>
-            <div class="input-group">
-                <label for="bandeira">Selecione a Bandeira Tarifária:</label>
-                <select id="bandeira" required>
-                    <option value="verde">Verde</option>
-                    <option value="amarela">Amarela</option>
-                    <option value="vermelha1">Vermelha (Patamar 1)</option>
-                    <option value="vermelha2">Vermelha (Patamar 2)</option>
-                </select>
-            </div>
-            <button type="submit">Calcular</button>
-        </form>
-        <div id="resultado">
-            <h2>Resultado</h2>
-            <p id="consumoMedio"></p>
-        </div>
+  <div class="container">
+    <div class="logo">
+      <img src="img/Enind.png" alt="Logo da Empresa" />
     </div>
-    <script src="script.js"></script>
+
+    <h1>Consumo de Energia</h1>
+
+    <form id="form">
+      <div class="input-group">
+        <label for="valorConta">Valor da Conta (R$):</label>
+        <input type="real" id="valorConta" required step="0.01" min="0" />
+      </div>
+
+      <div class="input-group">
+        <label for="companhia">Companhia Elétrica:</label>
+        <select id="companhia" required>
+          <option value="coelba">COELBA</option>
+          <option value="enel">ENEL</option>
+          <option value="cemig">CEMIG</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="bandeira">Bandeira Tarifária:</label>
+        <select id="bandeira" required>
+          <option value="verde">Verde</option>
+          <option value="amarela">Amarela</option>
+          <option value="vermelha1">Vermelha (Patamar 1)</option>
+          <option value="vermelha2">Vermelha (Patamar 2)</option>
+        </select>
+      </div>
+
+      <button type="submit">Calcular</button>
+    </form>
+
+    <button type="button" id="confirmarBtn" style="display: none;">Confirmar</button>
+
+    <div id="resultado">
+      <h2>Resultado</h2>
+      <p id="consumoMedio"></p>
+    </div>
+
+    <div id="filtros">
+      <h2>Histórico de Consumo</h2>
+      <select id="filtroMes">
+        <option value="">Todos os meses</option>
+      </select>
+    </div>
+
+    <div id="historico">
+      <ul id="listaHistorico"></ul>
+      <button id="limparHistorico">🗑️ Limpar Histórico</button>
+      <button id="exportarPDF">📄 Exportar PDF</button>
+      <button id="exportarCSV">📊 Exportar Excel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
